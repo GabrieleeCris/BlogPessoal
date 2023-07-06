@@ -18,38 +18,8 @@ import jakarta.validation.constraints.Size;
 	@Table(name = "tb_postagens") // indica o nome da Tabela no Banco de dados
 	public class Postagem {
 
-		public Long getId() {
-			return id;
-		}
-
-		public void setId(Long id) {
-			this.id = id;
-		}
-
-		public String getTitulo() {
-			return titulo;
-		}
-
-		public void setTitulo(String titulo) {
-			this.titulo = titulo;
-		}
-
-		public String getTexto() {
-			return texto;
-		}
-
-		public void setTexto(String texto) {
-			this.texto = texto;
-		}
-
-		public LocalDateTime getData() {
-			return data;
-		}
-
-		public void setData(LocalDateTime data) {
-			this.data = data;
-		}
-
+		
+	
 		@Id  //  inidica que o Atributo anotado será a Chave Primária
 		@GeneratedValue(strategy = GenerationType.IDENTITY) // indica que a Chave Primária será gerada pelo Banco de dados
 		private Long id;
@@ -70,7 +40,42 @@ import jakarta.validation.constraints.Size;
 	@ManyToOne
 	@JsonIgnoreProperties("postagem")
 	private Tema tema;
+	
+	@ManyToOne
+	@JsonIgnoreProperties
+	private Usuario usuario;
+	
+	public Long getId() {
+        return this.id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return this.titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getTexto() {
+        return this.texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public LocalDateTime getData() {
+        return this.data;
+    }
+
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
 
 	public Tema getTema() {
 		return tema;
@@ -79,14 +84,19 @@ import jakarta.validation.constraints.Size;
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
-	  
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+    
+}
+
 
 	
 	
 	
 	
-	
-	
-	
-	
-}
